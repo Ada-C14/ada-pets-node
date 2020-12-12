@@ -40,7 +40,14 @@ const removePet = (selectedPetId) => {
     setError("You tried to remove a pet without selecting it!");
   } else {
     // Fill out as part of Wave 3.
-  }
+    axios.delete(`${BASE_URL}${selectedPetId}`)
+    .then((response) => {
+      setResult(`Pet #${selectedPetId} successfully removed!`);
+    })
+    .catch((error) => {
+      setError(`Could not remove pet #${selectedPetId}: ${error.message}`); 
+    });
+  };
 };
 
 const addPet = (petInfo) => {
