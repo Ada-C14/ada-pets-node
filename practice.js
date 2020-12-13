@@ -1,10 +1,16 @@
 const axios = require('axios');
 
-axios.delete('http://localhost:3000/pets/21')
+const petInfo = {
+  name: "Miso",
+  owner: "Tram",
+  age: 1,
+}
+
+axios.post('http://localhost:3000/pets/', petInfo)
     .then((response) => {
-      console.log('Success! Here is a list of all pets:');
+      console.log('Success! Pet added');
       // setResult(response.data);
-      console.log('Pet is deleted');
+      console.log(response.data);
     })
     .catch((error) => {
       console.log('Oops! Something went wrong:')
