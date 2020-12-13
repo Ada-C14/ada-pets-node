@@ -25,12 +25,12 @@ const showDetails = (selectedPetId) => {
     setError("You tried to show details for a pet without selecting it!");
   } else {
     axios.get(`${BASE_URL}${selectedPetId}`)
-    .then((response) => {
-      setResult(response.data);
-    })
-    .catch((error) => {
-      setError('Request failed with a 404');
-    })
+      .then((response) => {
+        setResult(response.data);
+      })
+      .catch((error) => {
+        setError('Request failed with a 404');
+      })
   }
 };
 
@@ -38,7 +38,13 @@ const removePet = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
   } else {
-    // Fill out as part of Wave 3.
+    axios.delete(`${BASE_URL}${selectedPetId}`)
+      .then((response) => {
+        setResult(`Congrats! You have adopted pet number ${selectedPetId}`);
+      })
+      .catch((error) => {
+        setError('Request failed with a 404, pet was not removed')
+      })
   }
 };
 
