@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-axios.get('http://localhost:3000/pet')
+axios.get('http://localhost:3000/pets/2')
     .then((response) => {
       console.log('Success! Here is a list of all pets:');
       // setResult(response.data);
