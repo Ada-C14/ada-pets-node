@@ -32,7 +32,7 @@ describe('Wave 4', () => {
         options: options
       };
 
-      const reqData = {
+      const reqData = { 
         name: name,
         ...options
       };
