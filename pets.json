@@ -48,6 +48,13 @@
       "species": "Dog",
       "age": 9,
       "owner": "Christine"
+    },
+    {
+      "name": "Champion",
+      "species": "Dog",
+      "age": 6,
+      "owner": "Andy and April",
+      "id": 8
     }
   ]
 }
