@@ -62,7 +62,7 @@ describe('Wave 4', () => {
       });
 
       // Act.
-      addPet(reqData);
+      addPet(petInfo);
     });
 
     it('sets an error string when the response isn\'t successful', done => {
