@@ -56,7 +56,26 @@ const removePet = (selectedPetId) => {
 };
 
 const addPet = (petInfo) => {
-  // Fill out as part of Wave 4.
+  const axios = require('axios');
+
+  let reStructureInfo = {}
+  if (petInfo['name']) {
+    reStructureInfo['name'] = petInfo['name']
+  }
+  if (petInfo['options']) {
+    for (const option in petInfo['options']) { 
+      reStructureInfo[option] = petInfo['options'][option]
+    }
+  }
+
+  axios.post(BASE_URL, reStructureInfo)
+    .then((response) => {
+      return setResult(response.data)
+    })
+    .catch((error) => {
+      setError('failed to add a new pet')
+      return setError(error.message)
+    });
 };
 
 // Use Node-style exports to export functions for tests and main.
