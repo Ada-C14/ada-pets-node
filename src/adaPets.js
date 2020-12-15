@@ -26,11 +26,11 @@ const showDetails = (selectedPetId) => {
     setError("You tried to show details for a pet without selecting it!");
   } else {
     axios.get(BASE_URL + selectedPetId)
-    .then((response) => {
-      setResult(response.data);
+      .then((response) => {
+        setResult(response.data);
     })
-    .catch((error) => {
-      setError(`Oops! There was an error with your request: ${error}`);
+      .catch((error) => {
+        setError(`Oops! There was an error with your request: ${error}`);
     })
   }
 };
@@ -39,7 +39,13 @@ const removePet = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
   } else {
-    // Fill out as part of Wave 3.
+    axios.delete(BASE_URL + selectedPetId)
+      .then((response) => {
+        setResult(`Success! Pet ${selectedPetId} has been deleted.`);
+      })
+      .catch((error) => {
+        setError(`There was an error trying to remove ${selectedPetId}: ${error}`);
+      })
   }
 };
 
