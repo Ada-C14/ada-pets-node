@@ -35,10 +35,17 @@ const removePet = (selectedPetId) => {
 };
 
 const addPet = (petInfo) => {
-  //petInfo is an obejct with keys name and options
+  //petInfo is an object with keys name and options
   //where the value for options is another object with the optional attributes
-  // reqData = petInfo.options
-  // regData.name = petInfo.name
+  let reqData = petInfo.options;
+  reqData.name = petInfo.name;
+  axios.post(BASE_URL, reqData)
+  //console.log(response.data)
+    .then((response) => {setResult(response.data)})
+    .catch((error) => {
+      setError(`Failed to add pet`);
+    })
+    
 };
 
 // Use Node-style exports to export functions for tests and main.
