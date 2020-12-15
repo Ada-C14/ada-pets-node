@@ -1,4 +1,5 @@
 // Use Node-style imports for dependencies.
+// Use Node-style imports for dependencies.
 const axios = require('axios');
 const result = require('./result.js');
 
@@ -9,7 +10,13 @@ const BASE_URL = 'http://localhost:3000/pets/';
 
 // Option functions.
 const listPets = () => {
-  // Fill out as part of Wave 1.
+  axios.get(BASE_URL)
+    .then(response => {
+      setResult(response.data);
+    })
+    .catch(error => {
+      setError('Was not able to get list of pets')
+    });
 };
 
 const showDetails = (selectedPetId) => {
