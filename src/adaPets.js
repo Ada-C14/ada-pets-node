@@ -54,7 +54,7 @@ const addPet = (petInfo) => {
 
   axios.post(BASE_URL, formattedPetParams)
     .then((response) => {
-      console.log(petInfo);
+      console.log('Successfully added pet:', response.data);
       setResult(response.data);
     })
     .catch((error) => {
