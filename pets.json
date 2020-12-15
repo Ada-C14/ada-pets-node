@@ -48,20 +48,6 @@
       "species": "Dog",
       "age": 9,
       "owner": "Christine"
-    },
-    {
-      "name": "Test",
-      "species": "Dog",
-      "age": "1",
-      "owner": "Tester",
-      "id": "70"
-    },
-    {
-      "name": "Tester",
-      "species": "Dog",
-      "age": "1",
-      "owner": "Sue",
-      "id": "H3d9EvC"
     }
   ]
 }
