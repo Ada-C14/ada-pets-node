@@ -11,45 +11,13 @@ const BASE_URL = 'http://localhost:3000/pets/';
 const listPets = () => {
   // Fill out as part of Wave 1.
 
-  const FAKE_URL = 'http://localhost:3000/petss/';
-
-  axios.get(`${FAKE_URL}`)
+  axios.get(`${BASE_URL}`)
     .then((response) => {
-      // console.log('success!');
-      console.log(response.data);
-      // const setResult = response.data;
+      setResult(response.data);
     })
     .catch((error) => {
-      console.log(error.response.status);
-      console.log(error.response.statusText);
-      // const setError = error.data;
-
+      setError(error.message);
   });
-
-  // axios.get(`${BASE_URL}`)
-  //   .then((response) => {
-  //     console.log('success!');
-  //     // console.log(response);
-  //     console.log(response.data[0]);
-  //   })
-  //   .catch((error) => {
-  //     console.log('failllll')
-  //     console.log(response)
-  // });
-
-//   const PET_URL = `http://localhost:3000/pets/?id=1`
-
-//   axios.get(`${PET_URL}`)
-//   .then((response) => {
-//     console.log('success!');
-//     // console.log(response);
-//     console.log(response.data);
-//   })
-//   .catch((error) => {
-//     console.log('failllll')
-//     console.log(response)
-// });
-
 };
 
 const showDetails = (selectedPetId) => {
@@ -79,6 +47,3 @@ module.exports = {
   removePet,
   addPet
 };
-
-// MANUAL TESTING
-listPets();
