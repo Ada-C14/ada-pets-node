@@ -11,16 +11,29 @@ const BASE_URL = 'http://localhost:3000/pets/';
 const listPets = () => {
   // Fill out as part of Wave 1.
 
-    axios.get(`${BASE_URL}`)
+  // axios.get(`${BASE_URL}`)
+  //   .then((response) => {
+  //     console.log('success!');
+  //     // console.log(response);
+  //     console.log(response.data[0]);
+  //   })
+  //   .catch((error) => {
+  //     console.log('failllll')
+  //     console.log(response)
+  // });
+
+  const PET_URL = `http://localhost:3000/pets/?id=1`
+
+  axios.get(`${PET_URL}`)
   .then((response) => {
     console.log('success!');
     // console.log(response);
-    console.log(response.data[0]);
+    console.log(response.data);
   })
   .catch((error) => {
     console.log('failllll')
     console.log(response)
-  });
+});
 
 };
 
