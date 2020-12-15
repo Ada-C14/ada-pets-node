@@ -29,8 +29,7 @@ describe('Wave 4', () => {
 
       const petInfo = {
         name: name,
-        // options: options
-        ...options
+        options: options
       };
 
       const reqData = {
