@@ -15,7 +15,7 @@ const listPets = () => {
     setResult(response.data);
   })
   .catch((error) => {
-    setError('Failure!');
+    setError(`Error: ${error.message}`);
   });
 };
 
@@ -44,14 +44,22 @@ const removePet = (selectedPetId) => {
       setResult(response.data);
     })
     .catch((error) => {
-      // match written case insensitive error test message('remove or Remove' failed or Failed)
-      setError('Remove request failed!');
+      setError(`Remove request failed! Error:${error.message}`);
     });
   }
 };
 
 const addPet = (petInfo) => {
   // Fill out as part of Wave 4.
+  const reqData = petInfo.options;
+  reqData.name = petInfo.name;
+  axios.post(BASE_URL, reqData)
+  .then((response) => {
+    setResult(response.data);
+  })
+  .catch((error) => {
+    setError(`Failed to add pet! Error: ${error.message}`);
+  });
 };
 
 // Use Node-style exports to export functions for tests and main.
