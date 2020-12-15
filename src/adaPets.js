@@ -57,7 +57,7 @@ const addPet = (petInfo) => {
     pet = response.data;
     setResult(pet);
   })
-  .catch((error) => {
+  .catch(() => {
     setError('Failed to add the selected pet')
   })
 };
