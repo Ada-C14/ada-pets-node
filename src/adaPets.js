@@ -30,7 +30,7 @@ const removePet = (selectedPetId) => {
   } else {
     axios.delete(BASE_URL+selectedPetId)
     .then((response) => {setResult(response.data)})
-    .catch((error) => {setError(`Request to remove ${ selectedPetId } failed`)})
+    .catch((error) => {setError(`Failed to remove a pet`)})
   }
 };
 
@@ -43,7 +43,7 @@ const addPet = (petInfo) => {
   //console.log(response.data)
     .then((response) => {setResult(response.data)})
     .catch((error) => {
-      setError(`Failed to add pet`);
+      console.log(setError(`Failed to add a pet`));
     })
     
 };
