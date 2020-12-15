@@ -58,15 +58,10 @@ const removePet = (selectedPetId) => {
 const addPet = (petInfo) => {
   const axios = require('axios');
 
-  let reStructureInfo = {}
-  if (petInfo['name']) {
-    reStructureInfo['name'] = petInfo['name']
-  }
-  if (petInfo['options']) {
-    for (const option in petInfo['options']) { 
-      reStructureInfo[option] = petInfo['options'][option]
-    }
-  }
+  let reStructureInfo = {
+    name: petInfo.name,
+    ...petInfo.options
+  };
 
   axios.post(BASE_URL, reStructureInfo)
     .then((response) => {
