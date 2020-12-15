@@ -11,11 +11,11 @@ const BASE_URL = 'http://localhost:3000/pets/';
 const listPets = () => {
   axios.get(BASE_URL)
     .then((response) => {
-      pets = response.data
-      setResult(pets)
+      pets = response.data;
+      setResult(pets);
     })
-    .catch((error) => {
-      setError('Unsuccessful response!')
+    .catch(() => {
+      setError('Unsuccessful response!');
     })
 };
 
@@ -23,7 +23,14 @@ const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
   } else {
-    // Fill out as part of Wave 2.
+    axios.get(BASE_URL + selectedPetId)
+    .then((response) =>{
+      pet = response.data;
+      setResult(pet);
+    })
+    .catch(() => {
+      setError('Error: Request failed with status code 404');
+    })
   }
 };
 
@@ -46,5 +53,3 @@ module.exports = {
   removePet,
   addPet
 };
-
-listPets()
