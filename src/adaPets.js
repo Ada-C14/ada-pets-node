@@ -9,13 +9,13 @@ const BASE_URL = 'http://localhost:3000/pets/';
 
 // Option functions.
 const listPets = () => {
- axios.get(BASE_URL)
- .then((response) => {
-   setResult(response.data);
- })
- .catch((error) => {
-  setError(`Your request has errors`);
-})
+  axios.get(BASE_URL)
+    .then((response) => {
+      setResult(response.data);
+    })
+    .catch((error) => {
+      setError(`Your request has errors`);
+    })
 };
 
 const showDetails = (selectedPetId) => {
@@ -28,7 +28,7 @@ const showDetails = (selectedPetId) => {
       })
       .catch((error) => {
         setError('Request failed with status 404')
-    })
+      });
   }
 };
 
@@ -37,17 +37,23 @@ const removePet = (selectedPetId) => {
     setError("You tried to remove a pet without selecting it!");
   } else {
     axios.delete(`${BASE_URL}${selectedPetId}`)
-    .then((response) => {
-      setResult(response.data)
-    })
-    .catch((error) => {
-      setError('Failed to remove pet')
-    })
+      .then((response) => {
+        setResult(response.data)
+      })
+      .catch((error) => {
+        setError('Failed to remove pet')
+      });
   }
 };
 
 const addPet = (petInfo) => {
-  // Fill out as part of Wave 4.
+ axios.post(BASE_URL, petInfo)
+  .then((response) => {
+    setResult(response.data)
+  })
+  .catch((error) => {
+    setError('Failed to add pet')
+  });
 };
 
 // Use Node-style exports to export functions for tests and main.
