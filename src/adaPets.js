@@ -9,7 +9,9 @@ const BASE_URL = 'http://localhost:3000/pets/';
 
 // Option functions.
 const listPets = () => {
-  // Fill out as part of Wave 1.
+  axios.get(BASE_URL)
+  .then((response) => {setResult(response.data)})
+  .catch((error) => {setError(`Failed to list pets with status code: ${error.response.status}`)})
 };
 
 const showDetails = (selectedPetId) => {
@@ -29,7 +31,10 @@ const removePet = (selectedPetId) => {
 };
 
 const addPet = (petInfo) => {
-  // Fill out as part of Wave 4.
+  //petInfo is an obejct with keys name and options
+  //where the value for options is another object with the optional attributes
+  // reqData = petInfo.options
+  // regData.name = petInfo.name
 };
 
 // Use Node-style exports to export functions for tests and main.

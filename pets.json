@@ -48,6 +48,35 @@
       "species": "Dog",
       "age": 9,
       "owner": "Christine"
+    },
+    {
+      "name": "Tuzik",
+      "species": "Dog",
+      "age": "9",
+      "owner": "Chris",
+      "id": 8
+    },
+    {
+      "name": "Tuzik",
+      "species": "Dog",
+      "age": "9",
+      "id": 9
+    },
+    {
+      "name": "Tuzik",
+      "species": "Dog",
+      "id": 10
+    },
+    {
+      "id": 12,
+      "name": "Doggy"
+    },
+    {
+      "name": "Sus",
+      "species": "Dog",
+      "age": "1",
+      "owner": "Olga",
+      "id": 13
     }
   ]
 }
