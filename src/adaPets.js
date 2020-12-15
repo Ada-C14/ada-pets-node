@@ -23,8 +23,16 @@ const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
   } else {
-    // Fill out as part of Wave 2.
-  }
+    // console.log(BASE_URL + `${selectedPetId}`);
+    axios.get(BASE_URL + `${selectedPetId}`)
+      .then(response => {
+        setResult(response.data);
+        // console.log(response.data);
+      })
+      .catch(error => {
+        setError(`${error.response.status} Failed to retrieve pet`);
+      })
+  };
 };
 
 const removePet = (selectedPetId) => {
