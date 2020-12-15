@@ -48,6 +48,22 @@
       "species": "Dog",
       "age": 9,
       "owner": "Christine"
+    },
+    {
+      "id": 8
+    },
+    {
+      "id": 9
+    },
+    {
+      "name": "Mochi",
+      "species": "Dog",
+      "id": 10
+    },
+    {
+      "name": "Max",
+      "species": "Cat",
+      "id": 11
     }
   ]
 }
