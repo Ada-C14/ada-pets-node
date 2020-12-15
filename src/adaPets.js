@@ -11,6 +11,7 @@ const BASE_URL = 'http://localhost:3000/pets/';
 const listPets = () => {
   axios.get(BASE_URL)
     .then((response) => {
+      // console.log(response.data[1]);
       setResult(response.data);
     })
     .catch((error) => {
@@ -24,7 +25,13 @@ const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
   } else {
-    // Fill out as part of Wave 2.
+    axios.get(BASE_URL + selectedPetId)
+    .then((response) => {
+      setResult(response.data);
+    })
+    .catch((error) => {
+      setError(`Oops! There was an error with your request: ${error}`);
+    })
   }
 };
 
