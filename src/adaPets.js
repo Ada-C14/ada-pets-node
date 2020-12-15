@@ -9,7 +9,15 @@ const BASE_URL = 'http://localhost:3000/pets/';
 
 // Option functions.
 const listPets = () => {
-  // Fill out as part of Wave 1.
+  const axios = require('axios');
+
+  axios.get(BASE_URL)
+    .then((response) => {
+      return setResult(response.data)
+    })
+    .catch((error) => {
+      return setError(error.message)
+    });
 };
 
 const showDetails = (selectedPetId) => {
