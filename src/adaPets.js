@@ -48,12 +48,20 @@ const removePet = (selectedPetId) => {
     })
   }
 };
+
 const addPet = (petInfo) => {
   // Fill out as part of Wave 4.
-  axios.post(BASE_URL, petInfo)
+  //After several failed test attemtps, realized wave 4 tests are showing pet info can include required and optional info....name is always required, but the others are add-ons
+  //have to write 'if' statement to take care of this.
+  if (petInfo.options) {
+    PetInfo = { name: petInfo.name, ...petInfo.options};
+    } else {
+      PetInfo = {name: petInfo.name};
+      };
+    
+  axios.post(BASE_URL, PetInfo)
   .then((response) => {
-    console.log(petInfo)
-    setResult(response.data); 
+    setResult(response.data)
   })
   .catch((error) => {
   setError('Failed to add pet to adoption list!', error.response); 
