@@ -12,7 +12,7 @@ const listPets = () => {
   axios.get(BASE_URL)
     .then(response => setResult(response.data))
 
-    .catch(error => setError(`${error.response.statusText}`))
+    .catch(error => setError(`${error.response.statusText}`));
 };
 
 const showDetails = (selectedPetId) => {
@@ -21,13 +21,9 @@ const showDetails = (selectedPetId) => {
   } else {
     axios.get(BASE_URL+selectedPetId)
 
-    .then(response => {
-      setResult(response.data)
-    })
+    .then(response => setResult(response.data))
 
-    .catch(error => {
-      setError('404: Request failed')
-    })
+    .catch(error => setError('404: Request failed'));
   }
 };
 
@@ -35,12 +31,23 @@ const removePet = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
   } else {
-    // Fill out as part of Wave 3.
+     axios.delete(BASE_URL+selectedPetId)
+
+      .then( response => setResult('Success'))
+      
+      .catch( error => setError(`Request to remove pet #${selectedPetId} failed`));
   }
 };
 
 const addPet = (petInfo) => {
-  // Fill out as part of Wave 4.
+  axios.post(BASE_URL, petInfo)
+    // .then( response => console.log(response.data))
+    .then( response => setResult(response.data))
+
+    .catch( error => {
+      setError('Request to add pet failed');
+      // console.log(error)
+    })
 };
 
 // Use Node-style exports to export functions for tests and main.
