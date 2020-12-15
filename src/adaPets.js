@@ -28,9 +28,9 @@ const showDetails = (selectedPetId) => {
       setResult(response.data);
     })
     .catch((error) => {
-      setError(error.status);
+      setError('Oops! Your request failed with status code 404');
     })
-  }
+  };
 };
 
 const removePet = (selectedPetId) => {
