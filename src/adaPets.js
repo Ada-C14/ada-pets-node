@@ -15,7 +15,7 @@ const listPets = () => {
     setResult(response.data)
   })
   .catch((error)=> {
-    setError('Error!')
+    setError(`Error: ${error.response.status}`)
   })
 };
 
@@ -29,7 +29,7 @@ const showDetails = (selectedPetId) => {
       setResult(response.data)
     })
     .catch((error)=> {
-      setError('Error 404, failed to get the requested pet')
+      setError(`Error 404, failed to get the requested pet: ${error.response.status}`)
     })
   }
 };
@@ -44,7 +44,7 @@ const removePet = (selectedPetId) => {
       setResult(response.data)
     })
     .catch((error)=> {
-      setError('Error 404, failed to remove pet')
+      setError(`Error 404, failed to remove pet: ${error.response.status}`)
     })
   }
 };
