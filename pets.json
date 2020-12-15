@@ -48,6 +48,31 @@
       "species": "Dog",
       "age": 9,
       "owner": "Christine"
+    },
+    {
+      "title": " Alf the movie",
+      "overview": " The most early 90s movie of all time",
+      "release_date": " December 16th 2025",
+      "total_inventory": " 6",
+      "available_inventory": " 6",
+      "id": 8
+    },
+    {
+      "title": " Alf the movie",
+      "overview": " The most early 90s movie of all time",
+      "release_date": " December 16th 2025",
+      "total_inventory": " 6",
+      "available_inventory": " 6",
+      "id": 9
+    },
+    {
+      "pet": {
+        "name": "Lili",
+        "species": "Cat",
+        "age": 1,
+        "owner": "Nnn test"
+      },
+      "id": 10
     }
   ]
 }
