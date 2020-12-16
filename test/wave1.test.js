@@ -55,7 +55,7 @@ describe('Wave 1', () => {
       expectError(error => {
         // Assert.
         expect(error.constructor).toBe(String);
-
+        console.log(error);
         done();
       });
 
