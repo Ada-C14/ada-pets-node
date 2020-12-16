@@ -46,7 +46,15 @@ const removePet = (selectedPetId) => {
 };
 
 const addPet = (petInfo) => {
-  axios.post(BASE_URL, petInfo)
+  addPetInfo = {
+    name: petInfo.name,
+    age: petInfo.options.age,
+    species: petInfo.options.species,
+    about: petInfo.options.about,
+    owner: petInfo.options.owner
+  };
+
+  axios.post(BASE_URL, addPetInfo)
     .then((response) => {
       setResult(response.data)
     })
