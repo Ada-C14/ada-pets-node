@@ -15,7 +15,7 @@ const listPets = () => {
       setResult(response.data);
     })
     .catch((error) => {
-      setError('whoops');
+      setError(`unable to list pets - ${error.response.status} ${error.response.statusText}`);
     })
 };
 
@@ -28,7 +28,8 @@ const showDetails = (selectedPetId) => {
         setResult(response.data);
       })
       .catch((error) => {
-        setError('sorry, your request failed - 404 error');
+        // console.log(error.response.status, error.response.statusText);
+        setError(`sorry, your request failed - ${error.response.status} ${error.response.statusText}`);
       })
   }
 };
@@ -42,7 +43,7 @@ const removePet = (selectedPetId) => {
         setResult('thank you, that pet has been removed');
       })
       .catch((error) => {
-        setError('sorry, your attempt to remove that pet failed')
+        setError(`attempt to remove pet failed - ${error.response.status} ${error.response.statusText}`)
       })
   }
 };
@@ -58,7 +59,7 @@ const addPet = (petInfo) => {
       setResult(response.data);
     })
     .catch((error) => {
-      setError('sorry, it failed to add the new pet')
+      setError(`attempt to add pet failed - ${error.response.status} ${error.response.statusText}`)
     })
 };
 
