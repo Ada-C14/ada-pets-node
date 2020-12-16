@@ -65,6 +65,7 @@ describe('Wave 2', () => {
 
       expectError(error => {
         // Assert.
+        console.log(error)
         expect(error).toMatch(/failed/i);
         expect(error).toMatch(/404/);
 
