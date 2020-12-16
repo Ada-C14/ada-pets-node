@@ -12,7 +12,10 @@ const listPets = () => {
   // Wave 1
   axios.get(BASE_URL)
   .then((response) => {
-    setResult(response.data)
+    setResult(response.data);
+  })
+  .catch((error) => {
+    setError(`encountered the following error(s): ${error.message}`);
   })
 };
 
