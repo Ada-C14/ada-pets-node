@@ -26,6 +26,15 @@ const showDetails = (selectedPetId) => {
     setError("You tried to show details for a pet without selecting it!");
   } else {
     // Fill out as part of Wave 2.
+    axios.get(BASE_URL + selectedPetId)
+    .then((response) => {
+      console.log(response.data);
+      setResult(response.data);
+    })
+    .catch((error) => {
+      console.log(error.response)
+      setError('404: request failed');
+    })
   }
 };
 
@@ -34,6 +43,7 @@ const removePet = (selectedPetId) => {
     setError("You tried to remove a pet without selecting it!");
   } else {
     // Fill out as part of Wave 3.
+    
   }
 };
 
