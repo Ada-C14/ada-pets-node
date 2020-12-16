@@ -9,7 +9,11 @@ const BASE_URL = 'http://localhost:3000/pets/';
 
 // Option functions.
 const listPets = () => {
-  // Fill out as part of Wave 1.
+  //get /pets api call
+  if response code is 200,  
+    setResult()
+  else
+  setError('Your request to view the pets has failed')
 };
 
 const showDetails = (selectedPetId) => {

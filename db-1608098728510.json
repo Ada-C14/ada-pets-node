@@ -48,40 +48,6 @@
       "species": "Dog",
       "age": 9,
       "owner": "Christine"
-    },
-    {
-      "name": "Tubby",
-      "species": "Cat",
-      "age": 5,
-      "owner": "Leah",
-      "id": 8
-    },
-    {
-      "name": "Bruce",
-      "species": "Cat",
-      "age": 4,
-      "owner": "Leah",
-      "id": 9
-    },
-    {
-      "name": "Dipper",
-      "id": 10
-    },
-    {
-      "species": "Cat",
-      "id": 11
-    },
-    {
-      "age": 4,
-      "id": 12
-    },
-    {
-      "owner": "Leah",
-      "id": 13
-    },
-    {
-      "boop": "Leah",
-      "id": 14
     }
   ]
 }
