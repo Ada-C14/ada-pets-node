@@ -54,7 +54,7 @@ const addPet = (petInfo) => {
   const reqData = {
     name: petInfo.name,
     ...petInfo.options
-  }
+  };
   axios.post(BASE_URL, reqData)
     .then(response => {
       setResult(response.data);
