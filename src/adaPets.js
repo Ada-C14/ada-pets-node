@@ -13,10 +13,10 @@ const listPets = () => {
 
   axios.get(BASE_URL)
     .then((response) => {
-      return setResult(response.data)
+      setResult(response.data)
     })
     .catch((error) => {
-      return setError(error.message)
+      setError(error.message)
     });
 };
 
@@ -28,11 +28,11 @@ const showDetails = (selectedPetId) => {
 
     axios.get(BASE_URL+`${selectedPetId}`)
       .then((response) => {
-        return setResult(response.data)
+        setResult(response.data)
       })
       .catch((error) => {
         setError('failed, 404')
-        return setError(error.message)
+        setError(error.message)
       });
   }
 };
@@ -46,11 +46,11 @@ const removePet = (selectedPetId) => {
     axios.delete(BASE_URL+`${selectedPetId}`)
       .then((response) => {
         setResult('remove the selected pet')
-        return setResult(response.data)
+        setResult(response.data)
       })
       .catch((error) => {
         setError('failed to remove')
-        return setError(error.message)
+        setError(error.message)
       });
   }
 };
@@ -65,11 +65,11 @@ const addPet = (petInfo) => {
 
   axios.post(BASE_URL, reStructureInfo)
     .then((response) => {
-      return setResult(response.data)
+      setResult(response.data)
     })
     .catch((error) => {
       setError('failed to add a new pet')
-      return setError(error.message)
+      setError(error.message)
     });
 };
 
