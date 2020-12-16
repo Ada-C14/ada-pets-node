@@ -29,7 +29,7 @@ const showDetails = (selectedPetId) => {
       setResult(response.data)
     })
     .catch((error) => {
-      setError('/failed/i')
+      setError(`Can't find the pet. ${error.response}`)
     });
   }
 };
@@ -43,7 +43,7 @@ const removePet = (selectedPetId) => {
     .then(() => {
       setResult(`Pet ${selectedPetId} is deleted.`);
     })
-    .catch(() => {
+    .catch((error) => {
       setError(`/failed/i`)
     })
   }
@@ -51,6 +51,15 @@ const removePet = (selectedPetId) => {
 
 const addPet = (petInfo) => {
   // Fill out as part of Wave 4.
+  reqData = petInfo.options
+  reqData.name = petInfo.name
+  axios.post('http://localhost:3000/pets', reqData)
+  .then((response) => {
+    setResult(response.data)
+  })
+  .catch((error) => {
+    setError(`Failed to add a pet. ${error.response.status}`)
+  })
 };
 
 // Use Node-style exports to export functions for tests and main.

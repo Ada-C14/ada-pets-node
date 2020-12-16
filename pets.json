@@ -48,6 +48,19 @@
       "species": "Dog",
       "age": 9,
       "owner": "Christine"
+    },
+    {
+      "id": 8
+    },
+    {
+      "options": {},
+      "name": "lily",
+      "id": 9
+    },
+    {
+      "options": {},
+      "name": "Moa",
+      "id": 10
     }
   ]
 }
