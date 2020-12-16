@@ -48,18 +48,6 @@
       "species": "Dog",
       "age": 9,
       "owner": "Christine"
-    },
-    {
-      "id": 8,
-      "name": "Corn",
-      "species": "Dog",
-      "age": "18",
-      "owner": "Me"
-    },
-    {
-      "name": "Silk",
-      "id": 9,
-      "species": "Bunny"
     }
   ]
 }
