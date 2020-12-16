@@ -41,7 +41,7 @@ const removePet = (selectedPetId) => {
       setResult(`Successfully deleted pet ${selectedPetId}.`);
     })
     .catch((error) => {
-      setError(`${error}. Could not delete pet ${selectedPetId}`);
+      setError(`${error}. Could not remove pet ${selectedPetId}`);
     })
   }
 };
