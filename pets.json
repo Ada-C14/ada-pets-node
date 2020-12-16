@@ -48,6 +48,24 @@
       "species": "Dog",
       "age": 9,
       "owner": "Christine"
+    },
+    {
+      "name": "[options]",
+      "id": 8
+    },
+    {
+      "name": "me",
+      "age": 2,
+      "species": "Cat",
+      "owner": "Not",
+      "id": 9
+    },
+    {
+      "name": "Seelo",
+      "age": 3,
+      "species": "dog",
+      "owner": "Sam",
+      "id": 10
     }
   ]
 }
