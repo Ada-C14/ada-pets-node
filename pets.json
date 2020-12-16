@@ -29,9 +29,6 @@
       "owner": "Crystal"
     },
     {
-      "id": 5
-    },
-    {
       "id": 6,
       "name": "Coco",
       "species": "Dog",
@@ -46,12 +43,6 @@
       "owner": "Christine"
     },
     {
-      "id": 13
-    },
-    {
-      "id": 14
-    },
-    {
       "name": "Champion",
       "species": "Dog",
       "age": 5,
@@ -59,25 +50,82 @@
       "id": 15
     },
     {
-      "name": "",
-      "species": "",
-      "owner": "April and Andy",
+      "options": {},
+      "name": "name:",
+      "id": 16
+    },
+    {
+      "options": {},
+      "name": "Ripley",
+      "id": 17
+    },
+    {
+      "options": {},
+      "name": "Ichigo",
       "id": 18
     },
     {
-      "name": "",
-      "species": "",
-      "owner": "",
+      "options": {},
+      "name": "Momo",
       "id": 19
     },
     {
+      "options": {},
+      "name": "Tom",
       "id": 20
     },
     {
+      "name": "Jerry",
       "id": 21
     },
     {
+      "name": "Casey",
       "id": 22
+    },
+    {
+      "name": "Abrams",
+      "age": "10,",
+      "species": "Tortoise,",
+      "owner": "Martin",
+      "id": 23
+    },
+    {
+      "name": "Kayley",
+      "age": "8,",
+      "species": "Cat,",
+      "owner": "Mo",
+      "id": 24
+    },
+    {
+      "name": "Poochie",
+      "age": "1,",
+      "species": "Hamster,",
+      "owner": "Me",
+      "id": 25
+    },
+    {
+      "name": "Kitty",
+      "age": 2,
+      "species": "Dog",
+      "owner": "The",
+      "id": 26
+    },
+    {
+      "name": "ThisIsMyName",
+      "age": 2,
+      "species": "turtle",
+      "id": 27
+    },
+    {
+      "name": "bowwow",
+      "age": 3,
+      "species": "dog",
+      "id": 28
+    },
+    {
+      "name": "Pigeon",
+      "owner": "Someone Cool",
+      "id": 29
     }
   ]
 }
