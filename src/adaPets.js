@@ -46,7 +46,7 @@ const removePet = (selectedPetId) => {
         setResult(response.data);
     })
     .catch( error => {
-        setError(error.message);
+        setError(`${error.message}, failed to remove: ${selectedPetId}`);
     });
   }
 };
