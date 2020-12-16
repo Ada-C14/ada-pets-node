@@ -11,13 +11,10 @@ const BASE_URL = 'http://localhost:3000/pets/';
 const listPets = () => {
   axios.get(BASE_URL)
   .then((response) => {
-    let result = [];
-    for(const pet of response) {
-      // fill out
-    }
+    setResult(response.data);
   })
   .catch((error) => {
-    setError(error);
+    setError(`${error}. Unable to retrieve information on pets.`);
   })
 };
 listPets();
