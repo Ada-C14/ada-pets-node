@@ -29,8 +29,17 @@ const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
   } else {
-    petDetails()
-  }
+    const petDetails = () => {
+      const petId = BASE_URL.concat(selectedPetId);
+      axios.get(petId)
+      .then((response) => {
+        setResult(response.data)
+      })
+      .catch((error) => {
+        setError('Whoops, maybe there isn\'t a pet?', error.message)
+      });
+    };
+  };
 };
 
 const removePet = (selectedPetId) => {
@@ -41,6 +50,9 @@ const removePet = (selectedPetId) => {
     axios.delete(removePet)
     .then((response) => {
       setResult('It worked!')
+    })
+    .catch((error) => {
+      setError('It failed to remove the pet!')
     })
   }
 };
