@@ -1,27 +1,6 @@
 {
   "pets": [
     {
-      "id": 1,
-      "name": "Everly B",
-      "species": "Dog",
-      "age": 13,
-      "owner": "Kari"
-    },
-    {
-      "id": 2,
-      "name": "Gecky",
-      "species": "Gecko",
-      "age": 13,
-      "owner": "Dan"
-    },
-    {
-      "id": 3,
-      "name": "Samson",
-      "species": "Cat",
-      "age": 13,
-      "owner": "Dee"
-    },
-    {
       "id": 4,
       "name": "Ruth",
       "species": "Dog",
