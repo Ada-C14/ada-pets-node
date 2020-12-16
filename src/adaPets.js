@@ -51,6 +51,19 @@ const removePet = (selectedPetId) => {
 
 const addPet = (petInfo) => {
   // Fill out as part of Wave 4.
+  const formattedPetInfo = {
+    name: petInfo.name,
+    ...petInfo.options
+  };
+
+  axios.post(BASE_URL, formattedPetInfo)
+  .then((response) => {
+    setResult(response.data)
+  })
+  .catch((error) => {
+    setError('Request failed. Could not add pet')
+  })
+
 };
 
 // Use Node-style exports to export functions for tests and main.
