@@ -48,7 +48,23 @@ const removePet = (selectedPetId) => {
 };
 
 const addPet = (petInfo) => {
-  // Fill out as part of Wave 4.
+  if (!petInfo) {
+    setError("You tried to create a pet without giving any information about the pet!");
+  } else {
+    axios.post(BASE_URL, {
+      name: petInfo.name,
+      age: petInfo.options.age,
+      species: petInfo.options.species,
+      about: petInfo.options.about,
+      owner: petInfo.options.owner
+    })
+      .then((response) => {
+        setResult(response.data);
+      })
+      .catch((error) => {
+        setError(`Something went wrong, nothing was added: ${error}.`);
+      });
+  }
 };
 
 // Use Node-style exports to export functions for tests and main.
