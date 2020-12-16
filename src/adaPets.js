@@ -9,27 +9,56 @@ const BASE_URL = 'http://localhost:3000/pets/';
 
 // Option functions.
 const listPets = () => {
-  // Fill out as part of Wave 1.
+  axios.get(BASE_URL)
+  .then((response) => {
+    setResult(response.data);
+    })
+  .catch((error) => {
+    setError(`Something Happened! Status code: ${error.response.status}`);
+  });
 };
 
 const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
   } else {
-    // Fill out as part of Wave 2.
-  }
+    axios.get(`${BASE_URL}${selectedPetId}`)
+    
+    .then((response) => {
+      setResult(response.data);
+      })
+    .catch((error) => {
+      setError(`Fetching pet ${selectedPetId} failed! Status code: ${error.response.status}`);
+    });  }
 };
 
 const removePet = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
   } else {
-    // Fill out as part of Wave 3.
-  }
+    axios.delete(`${BASE_URL}${selectedPetId}`)
+    
+    .then((response) => {
+      setResult(response.data);
+      })
+    .catch((error) => {
+      setError(`Failed! Unable to remove pet ${selectedPetId}! Status code: ${error.response.status}`);
+    });  }
 };
 
 const addPet = (petInfo) => {
-  // Fill out as part of Wave 4.
+
+  let reqData = petInfo.options;
+  reqData.name = petInfo.name;
+
+  axios.post(BASE_URL, reqData)
+    
+    .then((response) => {
+      setResult(response.data);
+      })
+    .catch((error) => {
+      setError(`Failed! Unable to add pet! Status code: ${error.response.status}`);
+    });  
 };
 
 // Use Node-style exports to export functions for tests and main.
