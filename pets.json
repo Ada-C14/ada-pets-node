@@ -48,6 +48,32 @@
       "species": "Dog",
       "age": 9,
       "owner": "Christine"
+    },
+    {
+      "name": "Christabel",
+      "species": "kewl cat",
+      "age": 31,
+      "owner": "I AM A FREE ELF",
+      "id": 8
+    },
+    {
+      "name": "Name only",
+      "id": 9
+    },
+    {
+      "owner": "Owner only",
+      "id": 10
+    },
+    {
+      "species": "Species only",
+      "id": 11
+    },
+    {
+      "age": "Age only",
+      "id": 12
+    },
+    {
+      "id": 13
     }
   ]
 }
