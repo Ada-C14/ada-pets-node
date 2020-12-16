@@ -8,16 +8,32 @@ const setError = result.setError;
 const BASE_URL = 'http://localhost:3000/pets/';
 
 // Option functions.
+
 const listPets = () => {
   // Fill out as part of Wave 1.
+    axios.get(BASE_URL)
+      .then((response) => {
+        setResult(response.data);
+      })
+      .catch((error) => {
+        setError(error.message);
+      })
 };
+
 
 const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
   } else {
-    // Fill out as part of Wave 2.
-  }
+     // Fill out as part of Wave 2.
+    axios.get(`${BASE_URL}${selectedPetId}`)
+      .then((response) => {
+        setResult(response.data)
+      })
+      .catch((error)=> {
+        setError(`Unable to locate pet : ${error.message}`)
+      })
+    };
 };
 
 const removePet = (selectedPetId) => {
@@ -25,11 +41,28 @@ const removePet = (selectedPetId) => {
     setError("You tried to remove a pet without selecting it!");
   } else {
     // Fill out as part of Wave 3.
-  }
+    axios.delete(`${BASE_URL}${selectedPetId}`)
+      .then((response) => {
+        setResult(response.data)
+      })
+      .catch((error)=> {
+        setError(`Unable to remove pet : ${error.message}`)
+      })
+    }
 };
 
 const addPet = (petInfo) => {
   // Fill out as part of Wave 4.
+  let newPet = petInfo.options;
+  newPet.name = petInfo.name;
+
+  axios.post(BASE_URL, newPet)
+    .then((response) => {
+      setResult(response.data);
+    })
+    .catch((error)=> {
+      setError( `Could not add ${newPet}: ${error.message}`)
+    })
 };
 
 // Use Node-style exports to export functions for tests and main.
