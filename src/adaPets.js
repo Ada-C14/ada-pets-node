@@ -29,7 +29,7 @@ const showDetails = (selectedPetId) => {
       setResult(response.data)
     })
     .catch((error) => {
-      setError(`Can't find the pet. ${error.response}`)
+      setError(`Failed to find the pet. 404 not found.`)
     });
   }
 };
@@ -44,7 +44,7 @@ const removePet = (selectedPetId) => {
       setResult(`Pet ${selectedPetId} is deleted.`);
     })
     .catch((error) => {
-      setError(`/failed/i`)
+      setError(`Failed to remove the pet.`)
     })
   }
 };
@@ -58,7 +58,7 @@ const addPet = (petInfo) => {
     setResult(response.data)
   })
   .catch((error) => {
-    setError(`Failed to add a pet. ${error.response.status}`)
+    setError(`Failed to add a pet.`)
   })
 };
 
