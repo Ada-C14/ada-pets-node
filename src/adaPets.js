@@ -35,7 +35,7 @@ const showDetails = (selectedPetId) => {
         setResult(response.data);
       })
       .catch((error) => {
-        setError('Search failed with a 404, whomp!', error.message)
+        setError(`Search failed with a ${error.response.status}, whomp!`, error.message)
       });
   };
 };
