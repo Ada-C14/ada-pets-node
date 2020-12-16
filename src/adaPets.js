@@ -22,8 +22,14 @@ const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
   } else {
-    // setResult();
-    // Fill out as part of Wave 2.
+    //note: cannot use params because params are for QUERY PARAMS not for different end points
+    axios.get(`${BASE_URL}${selectedPetId}`)
+      .then((response) => {
+        setResult(response.data);
+      })
+      .catch((error) => {
+        setError(`Something went wrong: ${error}.`);
+      });
   }
 };
 
