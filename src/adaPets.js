@@ -17,7 +17,7 @@ const listPets = () => {
     setError(`${error}. Unable to retrieve information on pets.`);
   })
 };
-listPets();
+
 const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
