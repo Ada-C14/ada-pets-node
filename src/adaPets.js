@@ -58,22 +58,27 @@ const removePet = (selectedPetId) => {
 
 const addPet = (petInfo) => {
 
-  const reqData = {
+  const formatInfo = {
     name: petInfo.name,
     ...petInfo.options
   };
-  axios.post(BASE_URL, {
-    name: reqData.name,
-    species: reqData.species,
-    age: reqData.age,
-    owner: reqData.owner,
-    about: reqData.about
-  })
+
+  console.log(petInfo);
+
+  axios.post(BASE_URL, formatInfo)
+  
+  // axios.post(BASE_URL, {
+  //   name: petInfo.name,
+  //   age: petInfo['options'].age,
+  //   species: petInfo['options'].species,
+  //   about: petInfo['options'].about,
+  //   owner: petInfo['options'].owner,
+  // })
   .then((response) => {
-    setResult(result.data);
+    setResult(response.data);
   }) 
   .catch((error) => {
-    setError('add pet failed - 404');
+    setError('add pet failed - 404', error.message);
   })
   .finally(() => {
     console.log('ADD PET COMPLETE');
@@ -87,3 +92,5 @@ module.exports = {
   removePet,
   addPet
 };
+
+
