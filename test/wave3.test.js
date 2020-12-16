@@ -56,7 +56,6 @@ describe('Wave 3', () => {
         // Assert.
         expect(error).toMatch(/failed/i);
         expect(error).toMatch(/remove/i);
-
         done();
       });
 
