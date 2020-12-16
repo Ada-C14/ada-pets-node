@@ -43,6 +43,26 @@
       "name": "Max",
       "species": "Cat",
       "id": 11
+    },
+    {
+      "name": "Mochi",
+      "id": 12
+    },
+    {
+      "name": "Max",
+      "id": 13
+    },
+    {
+      "name": "Aria",
+      "age": 5,
+      "id": 14
+    },
+    {
+      "name": "bree",
+      "age": 5,
+      "species": "dog",
+      "owner": "lina",
+      "id": 15
     }
   ]
 }
