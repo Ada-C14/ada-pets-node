@@ -15,7 +15,7 @@ const listPets = () => {
         response.data.map((animal) => {
           const id = animal.id;
           const name = animal.name;
-          return {id, name}
+          return {id, name};
         });
 
       setResult(petsData);
@@ -29,16 +29,14 @@ const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
   } else {
-    const petDetails = () => {
       const petId = BASE_URL.concat(selectedPetId);
       axios.get(petId)
       .then((response) => {
-        setResult(response.data)
+        setResult(response.data);
       })
       .catch((error) => {
-        setError('Whoops, maybe there isn\'t a pet?', error.message)
+        setError('Search failed with a 404, whomp!', error.message)
       });
-    };
   };
 };
 
