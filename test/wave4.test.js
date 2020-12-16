@@ -51,6 +51,7 @@ describe('Wave 4', () => {
         }
       );
 
+      console.log(result);
       // Assertions come first because they need to be ready before the function call.
       expectResult(result => {
         expect(result.id).not.toBeNull();
