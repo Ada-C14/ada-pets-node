@@ -10,21 +10,25 @@ const BASE_URL = 'http://localhost:3000/pets/';
 // Option functions.
 const listPets = () => {
   axios.get(BASE_URL)
-       .then((response) => {
+       .then(response => {
          setResult(response.data)
        })
-       .catch((error) => {
-         setError(`Sorry, this did not successfully complete => ${error.response.status}: ${error.response.statusText}`)
+       .catch(error => {
+         setError(`List pets failed => ${error.response.status}: ${error.response.statusText}`)
        })
 };
-
-// console.log(listPets())
 
 const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
   } else {
-    // Fill out as part of Wave 2.
+    axios.get(`${BASE_URL}${selectedPetId}`)
+         .then(response => {
+           setResult(response.data)
+         })
+         .catch(error => {
+          setError(`Show details failed => ${error.response.status}: ${error.response.statusText}`)
+         })
   }
 };
 
