@@ -55,6 +55,8 @@ const removePet = (selectedPetId) => {
 const addPet = (petInfo) => {
   // Fill out as part of Wave 4.
   
+  // notices that options was a nested object in petInfo
+  // used spread syntax to flatten the input
   const petParams = {
     name: petInfo.name,
     ...petInfo.options
