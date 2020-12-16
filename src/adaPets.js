@@ -46,7 +46,7 @@ const showDetails = (selectedPetId) => {
   } else {
     axios.get(BASE_URL + selectedPetId)
       .then((response) => {
-        setResult(response.data);
+        setResult('response.data');
       })
       .catch((error) => {
         setError('sorry, your request failed - 404 error');
@@ -58,7 +58,13 @@ const removePet = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
   } else {
-    // Fill out as part of Wave 3.
+    axios.delete(BASE_URL + selectedPetId)
+      .then((response) => {
+        setResult('thank you, that pet has been removed');
+      })
+      .catch((error) => {
+        setError('sorry, your attempt to remove that pet failed')
+      })
   }
 };
 

@@ -46,21 +46,6 @@
       "owner": "Christine"
     },
     {
-      "id": 8
-    },
-    {
-      "id": 9
-    },
-    {
-      "id": 10
-    },
-    {
-      "id": 11
-    },
-    {
-      "id": 12
-    },
-    {
       "id": 13
     },
     {
@@ -72,20 +57,6 @@
       "age": 5,
       "owner": "April and Andy",
       "id": 15
-    },
-    {
-      "name": "",
-      "species": "Dog",
-      "age": 5,
-      "owner": "April and Andy",
-      "id": 16
-    },
-    {
-      "name": "",
-      "species": "",
-      "age": 5,
-      "owner": "April and Andy",
-      "id": 17
     },
     {
       "name": "",
@@ -104,6 +75,9 @@
     },
     {
       "id": 21
+    },
+    {
+      "id": 22
     }
   ]
 }
