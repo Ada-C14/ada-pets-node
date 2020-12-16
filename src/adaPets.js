@@ -24,11 +24,12 @@ const showDetails = (selectedPetId) => {
     setError("You tried to show details for a pet without selecting it!");
   } else {
     // Fill out as part of Wave 2.
-    axios.get(BASE_URL + `${selectedPetId}`)
+    axios.get(BASE_URL + selectedPetId)
       .then(response => {
         setResult(response.data);
       })
-      .catch(() => {
+      .catch((error) => {
+        console.log(error)
         setError('Request failed, 404 error. Invalid Id');
       })
   }
@@ -39,10 +40,10 @@ const removePet = (selectedPetId) => {
     setError("You tried to remove a pet without selecting it!");
   } else {
     // Fill out as part of Wave 3.
-    axios.delete(BASE_URL + `${selectedPetId }`)
-      .then(response => {
-        setResult(response.data);
-        console.log(`succesfully deleted pet with ID ${selectedPetId}` )
+    axios.delete(BASE_URL + selectedPetId)
+      .then(() => {
+        setResult(`succesfully deleted pet with ID ${selectedPetId}`);
+        // console.log(`succesfully deleted pet with ID ${selectedPetId}` )
       })
       .catch(() => {
         setError('Request failed, unable to remove pet');
