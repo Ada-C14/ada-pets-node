@@ -28,11 +28,11 @@ const showDetails = (selectedPetId) => {
     // Fill out as part of Wave 2.
     axios.get(BASE_URL + selectedPetId)
     .then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       setResult(response.data);
     })
     .catch((error) => {
-      console.log(error.response)
+      // console.log(error.response);
       setError('404: request failed');
     })
   }
