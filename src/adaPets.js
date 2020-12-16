@@ -29,7 +29,6 @@ const showDetails = (selectedPetId) => {
         setResult(response.data);
       })
       .catch((error) => {
-        console.log(error)
         setError('Request failed, 404 error. Invalid Id');
       })
   }
@@ -55,7 +54,6 @@ const addPet = (petInfo) => {
   // Fill out as part of Wave 4.
   const param_info = petInfo.options;
   param_info.name = petInfo.name;
-  console.log(param_info)
   axios.post(BASE_URL, param_info)
   .then(response => {
     setResult(response.data);
