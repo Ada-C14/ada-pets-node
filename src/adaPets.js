@@ -14,7 +14,7 @@ const listPets = () => {
          setResult(response.data)
        })
        .catch(error => {
-         setError(`List pets failed => ${error.response.status}: ${error.response.statusText}`)
+         setError(`List pets action failed => ${error.response.status}: ${error.response.statusText}`)
        })
 };
 
@@ -27,7 +27,7 @@ const showDetails = (selectedPetId) => {
            setResult(response.data)
          })
          .catch(error => {
-          setError(`Show details failed => ${error.response.status}: ${error.response.statusText}`)
+          setError(`Show details action failed => ${error.response.status}: ${error.response.statusText}`)
          })
   }
 };
@@ -36,7 +36,13 @@ const removePet = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
   } else {
-    // Fill out as part of Wave 3.
+    axios.delete(`${BASE_URL}${selectedPetId}`)
+         .then(response => {
+           setResult(response.data)
+         })
+         .catch(error => {
+            setError(`Remove pet action failed => ${error.response.status}: ${error.response.statusText}`)
+         })
   }
 };
 
