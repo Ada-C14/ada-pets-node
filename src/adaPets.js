@@ -50,8 +50,6 @@ const removePet = (selectedPetId) => {
 };
 
 const addPet = (petInfo) => {
-//  let myPet = petInfo.options; // calling on options from test
-//   myPet.name = petInfo.name;
 
   const newPetInfo = {
     name: petInfo.name,
@@ -67,8 +65,6 @@ const addPet = (petInfo) => {
   });
 
 };
-
-
 
 // Use Node-style exports to export functions for tests and main.
 module.exports = {
