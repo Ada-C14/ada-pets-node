@@ -12,9 +12,16 @@ const listPets = () => {
   axios.get(BASE_URL).then(
     (response) => {setResult(response.data)}
   ).catch(
-    (error) => {setError(`Failed to list pets with status code: ${error.status}`)}
-    // WHAT DOES UNDEFINED MEAN
-    // (error) => {setError(`Failed to list pets with status code: ${error.response.status}`)}
+    // (error) => {setError(`Failed to list pets with status code: ${error.status}`)}
+    // WHAT DOES UNDEFINED MEAN HERE
+    function(error) {
+      if (error.response === undefined) {
+        setError('We didn\'t get any response');
+      } else {
+      console.log(error.response.status)
+      setError(`Failed to list pets with status code: ${error.response.status}`)
+      }
+    }
 
   )
   
