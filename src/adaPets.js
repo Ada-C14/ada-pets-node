@@ -9,11 +9,15 @@ const BASE_URL = 'http://localhost:3000/pets/';
 
 // Option functions.
 const listPets = () => {
-  //get /pets api call
-  if response code is 200,  
-    setResult()
-  else
-  setError('Your request to view the pets has failed')
+  axios.get(BASE_URL).then(
+    (response) => {setResult(response.data)}
+  ).catch(
+    (error) => {setError(`Failed to list pets with status code: ${error.status}`)}
+    // WHAT DOES UNDEFINED MEAN
+    // (error) => {setError(`Failed to list pets with status code: ${error.response.status}`)}
+
+  )
+  
 };
 
 const showDetails = (selectedPetId) => {
