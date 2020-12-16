@@ -8,23 +8,28 @@ const setError = result.setError;
 const BASE_URL = 'http://localhost:3000/pets/';
 
 // Option functions.
+
+// We could also separate out this function 
+// const handleListPetsResponse = function(response) {
+//   setResult(response.data)
+// }
+
+// axios.get(BASE_URL)
+// .then(handleListPetsResponse)
+// .catch...
+
 const listPets = () => {
-  axios.get(BASE_URL).then(
-    (response) => {setResult(response.data)}
-  ).catch(
-    // (error) => {setError(`Failed to list pets with status code: ${error.status}`)}
-    // WHAT DOES UNDEFINED MEAN HERE
-    function(error) {
+  axios.get(BASE_URL).then( // if successful, then this
+    (response) => {setResult(response.data)} // response is what we are naming the parameter that we receive back from api
+  ).catch( // if error, then this
+    error => { 
       if (error.response === undefined) {
         setError('We didn\'t get any response');
       } else {
-      console.log(error.response.status)
-      setError(`Failed to list pets with status code: ${error.response.status}`)
+      setError(`We failed to list pets with status code: ${error.response.status}`)
       }
     }
-
   )
-  
 };
 
 const showDetails = (selectedPetId) => {
