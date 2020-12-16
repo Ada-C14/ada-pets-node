@@ -46,14 +46,11 @@ const removePet = (selectedPetId) => {
     })
     .catch((error) => {
       setError(`failed remove`)
-      // setError(`Error, Pet #${selectedPetId} was not removed.`);
   });
   }
 };
 
 const addPet = (petInfo) => {
-    // petInfo is an object with keys name and options
-    //where the value for options is another object with the optional attributes
     reqData = petInfo.options
     reqData.name = petInfo.name
 
