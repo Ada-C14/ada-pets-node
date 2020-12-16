@@ -24,8 +24,14 @@ const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
   } else {
-   
-  }
+   axios.get(`${BASE_URL}${selectedPetId}`)
+   .then((response) => {
+     setResult(response.data)
+   })
+   .catch((error)=> {
+     setError(`Unable to locate pet : ${error.message}`)
+   })
+  };
 };
 
 const removePet = (selectedPetId) => {
