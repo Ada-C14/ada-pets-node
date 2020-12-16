@@ -55,12 +55,12 @@ const removePet = (selectedPetId) => {
 const addPet = (petInfo) => {
   // Fill out as part of Wave 4.
   
-  const petData = {
+  const petParams = {
     name: petInfo.name,
     ...petInfo.options
   }
   
-  axios.post(BASE_URL, petData)
+  axios.post(BASE_URL, petParams)
   .then((response) => {
     setResult(response.data);
   })
