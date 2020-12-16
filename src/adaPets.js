@@ -63,17 +63,8 @@ const addPet = (petInfo) => {
     ...petInfo.options
   };
 
-  console.log(petInfo);
-
   axios.post(BASE_URL, formatInfo)
-  
-  // axios.post(BASE_URL, {
-  //   name: petInfo.name,
-  //   age: petInfo['options'].age,
-  //   species: petInfo['options'].species,
-  //   about: petInfo['options'].about,
-  //   owner: petInfo['options'].owner,
-  // })
+
   .then((response) => {
     setResult(response.data);
   }) 
