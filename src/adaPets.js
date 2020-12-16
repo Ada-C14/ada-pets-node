@@ -43,12 +43,35 @@ const removePet = (selectedPetId) => {
     setError("You tried to remove a pet without selecting it!");
   } else {
     // Fill out as part of Wave 3.
-    
+    axios.delete(BASE_URL + selectedPetId)
+    .then((response) => {
+      setResult('Pet succesfully removed!')
+    })
+    .catch((error) => {
+      setError('Failed to remove selected pet')
+    })
   }
 };
 
 const addPet = (petInfo) => {
   // Fill out as part of Wave 4.
+  // console.log(petInfo)
+  let input = {'name': petInfo.name,
+  'age': petInfo.options.age,
+  'species': petInfo.options.species,
+  'about': petInfo.options.about,
+  'owner': petInfo.options.owner
+}
+  
+  axios.post(BASE_URL, input)
+    .then((response) => {
+    // console.log(response.data)
+    setResult(response.data)
+  })
+  .catch((error) => {
+    // console.log(error)
+    setError('failed to add pet')
+  })
 };
 
 // Use Node-style exports to export functions for tests and main.
