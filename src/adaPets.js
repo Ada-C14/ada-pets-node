@@ -58,7 +58,6 @@ const addPet = (petInfo) => {
     setResult(response.data);
   })
   .catch((error) => {
-    // set(petInfo)
     setError('The program failed to add the new pet :( please try again later!');
   });
 };
