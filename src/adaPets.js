@@ -9,7 +9,7 @@ const BASE_URL = 'http://localhost:3000/pets/';
 
 // Option functions.
 
-// We could also separate out this function 
+// We could also separate out this function to better see where it is coming from
 // const handleListPetsResponse = function(response) {
 //   setResult(response.data)
 // }
@@ -17,6 +17,11 @@ const BASE_URL = 'http://localhost:3000/pets/';
 // axios.get(BASE_URL)
 // .then(handleListPetsResponse)
 // .catch...
+
+// Potential Callback Function application
+// Could also define setError function to not write a way to handle an error each time in your code
+// let handleError = () => { // error handling logic}
+// .catch(handleError)
 
 const listPets = () => {
   axios.get(BASE_URL).then( // if successful, then this
