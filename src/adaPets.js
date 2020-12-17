@@ -50,18 +50,16 @@ const removePet = (selectedPetId) => {
 
 const addPet = (petInfo) => {
   // Fill out as part of Wave 4.
-  if (petInfo) {
-    setError("You tried to remove a pet without selecting it!");
-  } else {
-    axios.delete(BASE_URL + selectedPetId)
-    .then((response) => {
-      setResult(response.data);
-    })
-    .catch((error) => {
-      setError("The request to remove pet has failed.");
-    });
-  }
+  axios.post(BASE_URL, petInfo)
+  .then((response) => {
+    setResult(response.data);
+  })
+  .catch((error) => {
+    setError("The request to add a pet has failed.");
+  });
 };
+
+
 
 // Use Node-style exports to export functions for tests and main.
 module.exports = {
