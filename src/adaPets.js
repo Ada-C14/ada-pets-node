@@ -46,28 +46,22 @@ const showDetails = (selectedPetId) => {
       setResult(response.data)  // code executing with successful response
     })
     .catch((error) => {
-      setError(error.message)
+      setError(error.message) // code executing when error. Where is error.message coming from in error response?
     });
   }
 };
-
-// const showDetails = (selectedPetId) => {
-//   if (!selectedPetId) {
-//     setError("You tried to show details for a pet without selecting it!");
-//   } else {
-//     axios.get(`${BASE_URL}${selectedPetId}`).then(
-//       (response) => {setResult(response.data)}
-//     ).catch(
-//       (error) => {setError(error.response)}
-//     )
-//   }
-// };
 
 const removePet = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
   } else {
-    // Fill out as part of Wave 3.
+    axios.delete(`${BASE_URL}${selectedPetId}`)
+    .then((response) => {
+      setResult(response.data) // code executing with successful response after delete
+    })
+    .catch((error) => {
+      setError(`We have failed to remove this pet. Error message: ${error.message}`) // code executing when error after delete action
+    });
   }
 };
 
