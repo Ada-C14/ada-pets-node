@@ -27,7 +27,7 @@ const listPets = () => {
   axios.get(BASE_URL).then( // if successful, then this
     (response) => {setResult(response.data)} // response is what we are naming the parameter that we receive back from api
   ).catch( // if error, then this
-    error => { 
+    (error) => { 
       if (error.response === undefined) {
         setError('We didn\'t get any response');
       } else {
@@ -41,9 +41,27 @@ const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
   } else {
-    // Fill out as part of Wave 2.
+    axios.get(`${BASE_URL}${selectedPetId}`) 
+    .then((response) => {
+      setResult(response.data)  // code executing with successful response
+    })
+    .catch((error) => {
+      setError(error.message)
+    });
   }
 };
+
+// const showDetails = (selectedPetId) => {
+//   if (!selectedPetId) {
+//     setError("You tried to show details for a pet without selecting it!");
+//   } else {
+//     axios.get(`${BASE_URL}${selectedPetId}`).then(
+//       (response) => {setResult(response.data)}
+//     ).catch(
+//       (error) => {setError(error.response)}
+//     )
+//   }
+// };
 
 const removePet = (selectedPetId) => {
   if (!selectedPetId) {
