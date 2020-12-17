@@ -48,6 +48,43 @@
       "species": "Dog",
       "age": 9,
       "owner": "Christine"
+    },
+    {
+      "name": "Jello",
+      "species": "Dog",
+      "age": 1.5,
+      "owner": "Schanen",
+      "id": 8
+    },
+    {
+      "name": "Greta",
+      "species": "Dog",
+      "age": 1,
+      "owner": "Em",
+      "id": 9
+    },
+    {
+      "name": "Greg",
+      "species": "Dog",
+      "age": 10,
+      "id": 10
+    },
+    {
+      "species": "Dog",
+      "age": 12,
+      "owner": "Em",
+      "id": 11
+    },
+    {
+      "id": 12
+    },
+    {
+      "name": "sweetest",
+      "id": 13
+    },
+    {
+      "name": "kato",
+      "id": 14
     }
   ]
 }

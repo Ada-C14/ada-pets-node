@@ -9,27 +9,71 @@ const BASE_URL = 'http://localhost:3000/pets/';
 
 // Option functions.
 const listPets = () => {
-  // Fill out as part of Wave 1.
+  axios.get(BASE_URL)
+    .then((response) => {
+      // console.log(response.date);
+      setResult(response.data);
+    })
+    .catch((error) => {
+      setError('error!');
+    })
+    .finally(() => {
+      console.log('LIST ALL PETS - COMPLETE');
+    })
 };
 
 const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
-    setError("You tried to show details for a pet without selecting it!");
+    setError('show details failed - select user id');
   } else {
-    // Fill out as part of Wave 2.
-  }
+    axios.get(BASE_URL + selectedPetId)
+    .then((response) => {
+      setResult(response.data);
+    })
+    .catch((error) => {
+      setError('request failed - 404');
+    })
+    .finally(() => {
+      console.log('SHOW DETAILS - COMPLETE');
+    })
+  };
 };
 
 const removePet = (selectedPetId) => {
   if (!selectedPetId) {
-    setError("You tried to remove a pet without selecting it!");
+    setError('remove pet failed - select user id');
   } else {
-    // Fill out as part of Wave 3.
-  }
+    axios.delete(BASE_URL + selectedPetId)
+    .then((response) => {
+      setResult(response.data);
+    }) 
+    .catch((error) => {
+      setError('remove request failed - 404');
+    })
+    .finally(() => {
+      console.log('REMOVE PET COMPLETE')
+    })
+  };
 };
 
 const addPet = (petInfo) => {
-  // Fill out as part of Wave 4.
+
+  const formatInfo = {
+    name: petInfo.name,
+    ...petInfo.options
+  };
+
+  axios.post(BASE_URL, formatInfo)
+
+  .then((response) => {
+    setResult(response.data);
+  }) 
+  .catch((error) => {
+    setError('add pet failed - 404', error.message);
+  })
+  .finally(() => {
+    console.log('ADD PET COMPLETE');
+  })
 };
 
 // Use Node-style exports to export functions for tests and main.
@@ -39,3 +83,5 @@ module.exports = {
   removePet,
   addPet
 };
+
+
