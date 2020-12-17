@@ -48,6 +48,10 @@
       "species": "Dog",
       "age": 9,
       "owner": "Christine"
+    },
+    {
+      "name": "zoidberg",
+      "id": 12
     }
   ]
 }
