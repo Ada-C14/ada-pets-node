@@ -13,29 +13,32 @@ const listPets = () => {
   axios.get(BASE_URL)
   .then((response) => {
     setResult(response.data)
-  })
-  // console.log(************)
-  // console.log(response.data)
-  // console.log(************)
-  .catch((error) => {
+  }) .catch((error) => {
     setError('error')
   })
 };
 
 const showDetails = (selectedPetId) => {
+  // console.log(************)
+  // console.log(response)
+  // console.log(************)
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
-  } else {
-    // Fill out as part of Wave 2.
+  } else { axios.get(`${BASE_URL}${selectedPetId}`)
+    .then((response) => {
+      setResult(response.data)
+    }) .catch((error) => {
+      setError(`Error 404: failed to find ${error.response.status}`)
+    })
   }
 };
 
+// Not sure if I wanted to delete??
 const removePet = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
   } else {
-    // Fill out as part of Wave 3.
-  }
+      }
 };
 
 // Check getting help @Beatrice
