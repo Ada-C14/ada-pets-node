@@ -20,7 +20,7 @@ const listPets = () => {
   })
 
   .catch((error) => {
-    setError(`${error.message} in list pets`);
+    setError('There was an error with your request.');
   });
 
 };
@@ -45,11 +45,29 @@ const removePet = (selectedPetId) => {
     setError("You tried to remove a pet without selecting it!");
   } else {
     // Fill out as part of Wave 3.
-  }
+    axios.delete(BASE_URL + selectedPetId)
+    .then((result) => {setResult(result.data)})
+    .catch((error) => {setError(`Unable to remove pet: ${error}`)})
+  };
 };
 
 const addPet = (petInfo) => {
   // Fill out as part of Wave 4.
+  axios.post(BASE_URL, {
+    name: petInfo.name,
+    species: petInfo.species,
+    about: petInfo.about,
+    age: petInfo.age,
+    owner: petInfo.owner,
+})
+
+.then((response) => {
+  setResult(response.data);
+})
+
+.catch((error) => {
+  setError(`${error.message} in add pet`);
+})
 };
 
 // Use Node-style exports to export functions for tests and main.
