@@ -20,7 +20,15 @@ const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
   } else {
-    // Fill out as part of Wave 2.
+    axios.get(`${BASE_URL}${selectedPetId}`)
+    
+    .then((response) => {
+      setResult(response.data);
+      })
+    .catch((error) => {
+      setError(`${selectedPetId} failed with status code: ${error.response.status}`);
+    });  
+
   }
 };
 
