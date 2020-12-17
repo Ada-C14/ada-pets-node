@@ -38,25 +38,30 @@ const removePet = (selectedPetId) => {
   } else {
     axios.delete(`http://localhost:3000/pets/${selectedPetId}`)
     .then((response) => {
-      setResult("success")
+      setResult('success')
     })
     .catch((error) => {
-    setError(error.message)
+    // setError(`You were unable to remove ${selectedPetId}.`)
+    setError('This action failed, you could not remove the pet')
     });
   }
 };
 
 const addPet = (petInfo) => {
-  // if petInfo not valid set error message
-  // else
-  // axios post(url /pets/)
-  //.then response
-  // set vairable = response.data.id
-  // axios.get(url pets/id/)
-  // setresult response.data
+  
+  let newPetInfo = petInfo.options
+  newPetInfo.name = petInfo.name
   if (!petInfo) {
-    setError(`You tried to add an invalid pet!`);
-  }
+    setError("You did not provide the correct information to add pet");
+  } else {
+    axios.post(BASE_URL, newPetInfo)
+      .then((response) => {
+        setResult(response.data);
+      })
+      .catch((error) => {
+        setError(`This failed. You couldn't add a pet`);
+      });
+  };
 };
 
 // Use Node-style exports to export functions for tests and main.
