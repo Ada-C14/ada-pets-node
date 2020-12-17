@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "server": "json-server --watch pets.json"
+    "server": "json-server --watch pets.json",
+    "start": "node -r esm src/main.js"
   },
   "devDependencies": {
     "axios-mock-adapter": "^1.19.0",
@@ -15,6 +16,8 @@
   "dependencies": {
     "@moleculer/vorpal": "^1.11.5",
     "axios": "^0.21.0",
-    "json-server": "^0.16.3"
+    "esm": "^3.2.25",
+    "json-server": "^0.16.3",
+    "vorpal": "^1.12.0"
   }
 }
