@@ -11,18 +11,8 @@ const BASE_URL = 'http://localhost:3000/pets/';
 const listPets = () => {
   // Fill out as part of Wave 1.
   axios.get(BASE_URL)
-
-  .then((response) => {
-    const allPets = response.data.map((petData) => (
-      { id: petData.id, name: petData.name } 
-    ));
-    setResult(allPets);
-  })
-
-  .catch((error) => {
-    setError('There was an error with your request.');
-  });
-
+  .then((result) => {setResult(result.data)})
+  .catch((error) => {setError('There was an error with your request.')})
 };
 
 const showDetails = (selectedPetId) => {
