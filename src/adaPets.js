@@ -46,7 +46,7 @@ const addPet = (petInfo) => {
   axios.post(BASE_URL, reqData).then(
       (response) => {setResult(response.data)}
     ).catch(
-      (error) => {setError(`Failed to add pet ${ reqData.name } with message ${ error.message }`)}
+      (error) => {setError(`Failed to add pet ${ reqData.name }: ${ error.message }`)}
     );
 };
 
