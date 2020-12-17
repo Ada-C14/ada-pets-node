@@ -38,8 +38,10 @@ const removePet = (selectedPetId) => {
 };
 
 const addPet = (petInfo) => {
+  const newPet = petInfo.options;
+  newPet.name = petInfo.name;
   // Fill out as part of Wave 4.
-  axios.post(BASE_URL, petInfo)
+  axios.post(BASE_URL, newPet)
   .then((result) => {setResult(result.data)})
   .catch((error) => {setError(`Failed to add new pet: ${error}`)})
 };
