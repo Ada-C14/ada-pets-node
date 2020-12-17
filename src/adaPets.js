@@ -24,7 +24,7 @@ const showDetails = (selectedPetId) => {
     
     .then((response) => {
       setResult(response.data);
-      })
+    })
     .catch((error) => {
       setError(`${selectedPetId} failed with status code: ${error.response.status}`);
     });  
@@ -40,7 +40,7 @@ const removePet = (selectedPetId) => {
     
     .then((response) => {
       setResult(response.data);
-      })
+    })
     .catch((error) => {
       setError(`Failed! Unable to remove pet ${selectedPetId} with status code: ${error.response.status}`);
     });
@@ -55,7 +55,7 @@ const addPet = (petInfo) => {
     
     .then((response) => {
       setResult(response.data);
-      })
+    })
     .catch((error) => {
       setError(`Failed! Unable to add pet with status code: ${error.response.status}`);
     });  
