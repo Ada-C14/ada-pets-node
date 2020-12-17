@@ -51,12 +51,15 @@ const removePet = (selectedPetId) => {
 };
 
 const addPet = (petInfo) => {
-  axios.post(BASE_URL, petInfo)
+  const {options, ...rest} = petInfo
+  const newPetInfo = {...options, ...rest}
+  axios.post(BASE_URL, newPetInfo)
   .then((response) => {
     setResult(response.data);
   })
   .catch((error) => {
-    setError(`add ${error.message}`);
+    // set(petInfo)
+    setError('The program failed to add the new pet :( please try again later!');
   });
 };
 
