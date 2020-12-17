@@ -25,14 +25,14 @@ const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
   } else {
-    axios.get(BASE_URL + selectedPetId) // string concate because ',' works with console.log
+    axios.get(BASE_URL + selectedPetId) // string concate because ',' only works with console.log
 
     .then((result) => {
       setResult(result.data);
     })
 
     .catch((error) => {
-      // string concate because ',' works with console.log
+      // string concate because ',' only works with console.log
       setError('Error: failed , Status code: '+ error.response.status );
     })
   }
