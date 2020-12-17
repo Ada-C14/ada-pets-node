@@ -9,7 +9,6 @@ const BASE_URL = 'http://localhost:3000/pets/';
 
 // Option functions.
 const listPets = () => {
-  // Fill out as part of Wave 1.
   axios.get(BASE_URL)
   .then((response) => {
     setResult(response.data)
@@ -19,9 +18,6 @@ const listPets = () => {
 };
 
 const showDetails = (selectedPetId) => {
-  // console.log(************)
-  // console.log(response)
-  // console.log(************)
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
   } else { axios.get(`${BASE_URL}${selectedPetId}`)
@@ -48,10 +44,20 @@ const removePet = (selectedPetId) => {
   }
 };
 
+
+
 // Check getting help @Beatrice
-const addPet = (petInfo) => {
-  // Fill out as part of Wave 4.
-};
+const addPet = (petInfo) => { 
+  const reqData = {
+    name: petInfo.name,
+    ...petInfo.options
+  };
+  axios.post(BASE_URL, reqData)
+  .then((response) => {
+    setResult(response.data)
+  }) .catch((error) => {
+    setError('Error!: Failed to add')
+  })};
 
 // Use Node-style exports to export functions for tests and main.
 module.exports = {
