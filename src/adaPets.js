@@ -12,12 +12,10 @@ const listPets = () => {
   // Fill out as part of Wave 1.
   axios.get(BASE_URL)
   .then((response) => {
-
-setResult(response.data);
+    setResult(response.data);
   })
   .catch((error) => {
-
-setError("An error occurred.")
+    setError("An error has occurred.")
   });
 };
 
@@ -25,10 +23,16 @@ const showDetails = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to show details for a pet without selecting it!");
   } else {
-    // Fill out as part of Wave 2.
-  }
-};
-
+      // Fill out as part of Wave 2.
+      axios.get(BASE_URL + selectedPetId)
+        .then((response) => {
+          setResult(response.data);
+        })
+        .catch((error) => {
+          setError("The request has failed (4040 error).");
+        });
+      }
+    };
 const removePet = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
