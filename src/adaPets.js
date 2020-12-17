@@ -70,13 +70,20 @@ const addPet = (petInfo) => {
   // Is there a less unwieldly way to do this? Besides dot notation?
   const input = {'name': petInfo['name'],
   'species': petInfo['options']['species'],
-  'age': petInfo.['options']['age'],
-  'owner': petInfo.['options']['owner'],
-  'about': petInfo.['options']['about']
+  'age': petInfo['options']['age'],
+  'owner': petInfo['options']['owner'],
+  'about': petInfo['options']['about']
   }
+  // Pet in for to be added coming to me as part of petInfo object
+  // It was entered by user in CLI
+  // i then feed it into input to create a new object that I will input
+  // the new object I make called input doesn't have options anymore, I've left it behind
+
+
 
   axios.post(BASE_URL, input) 
   .then((response) => {
+    console.log(response.data) // not dealing with the request that we are sending. we are instead dealing with response we got back from api
     setResult(response.data)
   })
   .catch((error) => {
