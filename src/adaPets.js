@@ -38,7 +38,14 @@ const removePet = (selectedPetId) => {
   if (!selectedPetId) {
     setError("You tried to remove a pet without selecting it!");
   } else {
-      }
+    selectedPetIdName = selectedPetId
+    axios.delete(`${BASE_URL}${selectedPetId}`)
+    .then((response) => {
+      setResult(response.data)
+    }) .catch((error) => {
+      setError(`Error 404: failed to remove ${selectedPetIdName}`)
+    })
+  }
 };
 
 // Check getting help @Beatrice
