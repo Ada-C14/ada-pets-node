@@ -24,10 +24,10 @@ const BASE_URL = 'http://localhost:3000/pets/';
 // .catch(handleError)
 
 const listPets = () => {
-  axios.get(BASE_URL).then( // if successful, then this
-    (response) => {setResult(response.data)} // response is what we are naming the parameter that we receive back from api
-  ).catch( // if error, then this
-    (error) => { 
+  axios.get(BASE_URL).then((response) => { // response is what we are naming the parameter that we receive back from api
+    setResult(response.data)  // if successful, then this
+  })
+  .catch((error) => { // if error, then this
       if (error.response === undefined) {
         setError('We didn\'t get any response');
       } else {
@@ -66,7 +66,22 @@ const removePet = (selectedPetId) => {
 };
 
 const addPet = (petInfo) => {
-  // Fill out as part of Wave 4.
+
+  // Is there a less unwieldly way to do this? Besides dot notation?
+  const input = {'name': petInfo['name'],
+  'species': petInfo['options']['species'],
+  'age': petInfo.['options']['age'],
+  'owner': petInfo.['options']['owner'],
+  'about': petInfo.['options']['about']
+  }
+
+  axios.post(BASE_URL, input) 
+  .then((response) => {
+    setResult(response.data)
+  })
+  .catch((error) => {
+    setError('We failed to add your baby!')
+  });
 };
 
 // Use Node-style exports to export functions for tests and main.
