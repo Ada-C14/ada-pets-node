@@ -23,9 +23,7 @@ const showDetails = (selectedPetId) => {
     setError("You tried to show details for a pet without selecting it!");
   } else {
 
-    // Fill out as part of Wave 2.
-    //where is petDetails function
-    axios.get(BASE_URL + selectedPetId)  //need to call PETS API
+    axios.get(BASE_URL + selectedPetId) 
     .then((response) => {
       setResult(response.data)
     })
@@ -40,7 +38,6 @@ const removePet = (selectedPetId) => {
     setError("You tried to remove a pet without selecting it!");
   } else {
     // Fill out as part of Wave 3.
-    
     axios.delete(BASE_URL + selectedPetId)
     .then((response) => {
       setResult(`Success! Deleted ${selectedPetId}`)
