@@ -55,7 +55,7 @@ describe('Wave 3', () => {
       expectError(error => {
         // Assert.
         expect(error).toMatch(/failed/i);
-        expect(error).toMatch(/remove/i);
+        expect(error).toMatch(/remove/i); //not sure why this line fails the test
 
         done();
       });
