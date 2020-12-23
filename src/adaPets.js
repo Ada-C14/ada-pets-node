@@ -41,7 +41,7 @@ const removePet = (selectedPetId) => {
         setResult(response.data);
       })
       .catch((error) => {
-        setError(error.message);
+        setError('Unfortunately, this request failed to remove a pet.');
       });
   }
 };
@@ -49,12 +49,10 @@ const removePet = (selectedPetId) => {
 const addPet = (petInfo) => {
   axios.post(BASE_URL, {name:petInfo.name,...petInfo.options})
       .then((response) => {
-        console.log(response)
         setResult(response.data);
       })
       .catch((error) => {
-        console.log(error)
-        setError("error");
+        setError("Unfortunately, this request failed to add a pet.");
       });
 };
 
